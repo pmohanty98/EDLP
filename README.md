@@ -1,20 +1,23 @@
-# A Langevin-like Sampler for Discrete Distributions
+Entropy-Guided Sampling of Flat Modes in Discrete Spaces
 
 This repository contains code for the paper
-[A Langevin-like Sampler for Discrete Distributions](https://arxiv.org/pdf/2206.09914.pdf), accepted in _International Conference on Machine Learning (ICML), 2022_.
+[Entropy-Guided Sampling of Flat Modes in Discrete Spaces](https://arxiv.org/pdf/2206.09914.pdf), accepted in _International Conference on Machine Learning (ICML), 2025_.
 
 ```bibtex
-@article{zhang2022langevinlike,
-  title={A Langevin-like Sampler for Discrete Distributions},
-  author={Zhang, Ruqi and Liu, Xingchao and Liu, Qiang},
+@article{,
+  title={Entropy-Guided Sampling of Flat Modes in Discrete Spaces},
+  author={Mohanty, Pinaki and Bhattacharya, Riddhiman and Zhang, Ruqi},
   journal={International Conference on Machine Learning},
-  year={2022}
+  year={2025}
 }
 ```
 
 # Introduction
-We propose discrete Langevin proposal (DLP), a simple and scalable gradient-based
-proposal for sampling complex high-dimensional discrete distributions. In contrast to Gibbs sampling-based methods, DLP is able to update all coordinates in parallel in a single step and the magnitude of changes is controlled by a stepsize. This allows a cheap and efficient exploration in the space of high-dimensional and strongly correlated variables. We prove the efficiency of DLP by showing that the asymptotic bias of the stationary distribution is zero for log-quadratic distributions, and is small for distributions that are close to being log-quadratic. With DLP, we develop several variants of sampling algorithms, including unadjusted, Metropolis-adjusted, stochastic and preconditioned versions. DLP outperforms many popular alternatives on a wide variety of tasks, including Ising models, restricted Boltzmann machines, deep energy-based models, binary neural networks and language generation.
+We propose Entropic DLP (EDLP), an entropy-guided,
+gradient-based proposal for sampling discrete flat
+modes. EDLP efficiently incorporates local entropy
+guidance by coupling discrete and continuous variables
+within a joint distribution.
 
 
 # Dependencies
@@ -22,44 +25,38 @@ proposal for sampling complex high-dimensional discrete distributions. In contra
 * [torchvision 0.10.1](https://github.com/pytorch/vision/)
 
 # Usage
+
+## Sampling From 4D Joint Bernoulli
+Please run
+```
+cd Bernoulli
+python bernoulli_sample.py --sampler=<SAMPLER>
+```
+
 ## Sampling From Ising Models
 Please run
 ```
-python ising_sample.py
+python ising_sample.py --sampler=<SAMPLER>
 ```
 ## Sampling From Restricted Boltzmann Machines
 Please run
 ```
-python rbm_sample.py
+python rbm_sample.py --sampler=<SAMPLER>
 ```
-## Learning Ising Models
-Run ``bash generate_data.sh`` to generate the data, then learn the Ising model by running
+## TSP
+Please run
 ```
-python pcd.py --sampler=<SAMPLER>
+python tsp_sample.py --sampler=<SAMPLER>
 ```
-* ```SAMPLER``` &mdash; Specify which sampler to use. \
-                        ``dmala``: discrete Metropolis-adjusted Langevin algorithm; \
-                        ``dula``: discrete unadjusted Langevin algorithm 
-
-Use ``plt_pcd`` to plot the results of log RMSE with respect to the number of iterations and the runtime.
-
-## Learning Deep EBMs
-The datasets can be found [here](https://github.com/jmtomczak/vae_vampprior/tree/master/datasets).
-
-To learn the EBM, run ``bash ebm.sh`` and to evaluate the learned EBM using AIS, run ``ais.sh``.
-
 
 ## Binary Bayesian Neural Networks
 See 
 ```
-./BinaryBNN
+cd BinaryBNN
+python bayesian.py --sampler=<SAMPLER>
 ```
 
-## A Toy Example For Categorical Sampling
-See
-```
-./CategoricalExample
-```
+
 
 # References
-* This repo is built upon the [GWG repo](https://github.com/wgrathwohl/GWG_release) 
+* This repo is built upon the [DLP repo](https://github.com/ruqizhang/discrete-langevin) 
