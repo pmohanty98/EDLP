@@ -1,13 +1,12 @@
 Entropy-Guided Sampling of Flat Modes in Discrete Spaces
 
 This repository contains code for the paper
-[Entropy-Guided Sampling of Flat Modes in Discrete Spaces](https://arxiv.org/pdf/2206.09914.pdf), accepted in _International Conference on Machine Learning (ICML), 2025_.
+Entropy-Guided Sampling of Flat Modes in Discrete Spaces.
 
 ```bibtex
-@article{,
+@article{
   title={Entropy-Guided Sampling of Flat Modes in Discrete Spaces},
   author={Mohanty, Pinaki and Bhattacharya, Riddhiman and Zhang, Ruqi},
-  journal={International Conference on Machine Learning},
   year={2025}
 }
 ```
