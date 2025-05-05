@@ -3,13 +3,7 @@ Entropy-Guided Sampling of Flat Modes in Discrete Spaces
 This repository contains code for the paper
 Entropy-Guided Sampling of Flat Modes in Discrete Spaces.
 
-```bibtex
-@article{
-  title={Entropy-Guided Sampling of Flat Modes in Discrete Spaces},
-  author={Mohanty, Pinaki and Bhattacharya, Riddhiman and Zhang, Ruqi},
-  year={2025}
-}
-```
+
 
 # Introduction
 We propose Entropic DLP (EDLP), an entropy-guided,
